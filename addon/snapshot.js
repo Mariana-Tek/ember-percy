@@ -100,6 +100,10 @@ export function percySnapshot(name, options) {
   snapshotRoot = setAttributeValues(snapshotRoot);
   snapshotRoot = setTextareaContent(snapshotRoot);
 
+  if (options.prepend) {
+    snapshotRoot.prepend(domCopy.find(options.prepend));
+  }
+
   let snapshotHtml = snapshotRoot.html();
 
   // Hoist the testing container contents up to the body.
